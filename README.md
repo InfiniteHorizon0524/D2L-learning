@@ -38,13 +38,21 @@ python -m pip install d2l==0.17.6 matplotlib-inline==0.1.7
 
 ```bash
 python -m pip check
+# 期望输出：No broken requirements found.
+
 python -c "import torch, d2l; print(torch.__version__, d2l.__version__)"
 # 期望输出：1.12.0+cpu 0.17.6
+```
 
+自检通过后即可运行本章代码。若该节提供 `.py` 版本，直接执行：
+
+```bash
 python 3.2-LinearRegression.py
 # features: tensor([-0.9139, -0.5656])
 # label: tensor([4.2996])
 ```
+
+若该节是 notebook，则逐格运行对应的 `.ipynb`（见下一步）。
 
 ### 5. 在 notebook 中使用
 
@@ -62,6 +70,18 @@ jupyter notebook
 conda activate d2l
 python -m ipykernel install --user --name d2l --display-name "d2l"
 ```
+
+### 备选：用 `requirements.txt` 一键安装
+
+不想手动逐个安装，也可以在激活环境后直接：
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+- `requirements.txt` 由 `pip freeze` 生成，是第 2、3 步的等价替代，其中已包含关键版本 `d2l==0.17.6`、`matplotlib==3.5.1`、`matplotlib-inline==0.1.7`、`torch==1.12.0`，因此不会踩到下面的 `_get` 报错。
+- 实测：全新 Python 3.9 环境下 3.6 分钟装完，`pip check` 无冲突，`import torch, d2l` 正常。
+- ⚠️ 这是 **Windows + Python 3.9** 的快照，包含 `pywin32`、`pywinpty`、`colorama` 等平台相关包，在 Linux / macOS 上会安装失败。
 
 ## 常见报错
 
