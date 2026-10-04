@@ -51,7 +51,7 @@ python 3.2-LinearRegression.py
 # features: tensor([-0.9139, -0.5656])
 # label: tensor([4.2996])
 ```
-
+ 
 若该节是 notebook，则逐格运行对应的 `.ipynb`（见下一步）。
 
 ### 5. 在 notebook 中使用
